@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { supabase } from './supabaseClient'
-import Header from './components/Layout/Header'
-import ProtectedRoute from './Components/Layout/ProtectedRoute'
+import Header from '/src/components/Layout/Header'
+import ProtectedRoute from '/src/Components/Layout/ProtectedRoute'
 import Login from '/src/components/Auth/Login'
-import Register from './components/Auth/Register'
-import ForgotPassword from './components/Auth/ForgotPassword'
-import ResetPassword from './components/Auth/ResetPassword'
+import Register from '/src/components/Auth/Register'
+import ForgotPassword from '/src/components/Auth/ForgotPassword'
+import ResetPassword from '/src/components/Auth/ResetPassword'
 import Dashboard from '/src/Dashboard'
-import Profile from './components/Profile'
+import Profile from '/src/components/Profile'
 import AdminDashboard from '/src/Admin'
 import ToolDetails from '/src/Components/Tools/Toolsdetails'
-import AddTool from './Components/Tools/AddTool'
-import EditTool from './Components/Tools/EditTool'
-import './index.css';
+import AddTool from '/src/Components/Tools/AddTool'
+import EditTool from '/src/Components/Tools/EditTool'
+import '/src/index.css';
 
 const App = () => {
   const [session, setSession] = useState(null);
