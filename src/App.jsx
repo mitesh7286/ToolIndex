@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { supabase } from './supabaseClient'
-import Header from '/src/Components/Layout/Header'
-import ProtectedRoute from '/src/Components/Layout/ProtectedRoute'
-import Login from '/src/Components/Auth/Login'
-import Register from '/src/Components/Auth/Register'
-import ForgotPassword from '/src/Components/Auth/ForgotPassword'
-import ResetPassword from '/src/Components/Auth/ResetPassword'
-import Dashboard from '/src/Dashboard'
-import Profile from '/src/Components/Profile'
-import AdminDashboard from '/src/Admin'
-import ToolDetails from '/src/Components/Tools/Toolsdetails'
-import AddTool from '/src/Components/Tools/AddTool'
-import EditTool from '/src/Components/Tools/EditTool'
-import '/src/index.css';
+import Header from './Components/Layout/Header'
+import ProtectedRoute from './Components/Layout/ProtectedRoute'
+import Login from './Components/Auth/Login'
+import Register from './Components/Auth/Register'
+import ForgotPassword from './Components/Auth/ForgotPassword'
+import ResetPassword from './Components/Auth/ResetPassword'
+import Dashboard from './Dashboard'
+import Profile from './Components/Profile'
+import AdminDashboard from './Admin'
+import ToolDetails from './Components/Tools/Toolsdetails'
+import AddTool from './Components/Tools/AddTool'
+import EditTool from './Components/Tools/EditTool'
+import './index.css';
 
 const App = () => {
   const [session, setSession] = useState(null);
