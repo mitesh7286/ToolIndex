@@ -161,7 +161,7 @@ const EditTool = ({ userInfo }) => {
       const uniqueName = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}_${file.name}`;
       
       const { error: uploadError } = await supabase.storage
-        .from('tools')
+        .from('Tools')
         .upload(uniqueName, file, {
           cacheControl: '3600',
           upsert: false
@@ -170,7 +170,7 @@ const EditTool = ({ userInfo }) => {
       if (uploadError) throw uploadError;
 
       const { data: publicUrlData } = supabase.storage
-        .from('tools')
+        .from('Tools')
         .getPublicUrl(uniqueName);
 
       const publicUrl = publicUrlData.publicUrl;
@@ -209,7 +209,7 @@ const EditTool = ({ userInfo }) => {
 
       // Delete from storage
       await supabase.storage
-        .from('tools')
+        .from('Tools')
         .remove([imageToDelete.file_name]);
 
       // Delete from database
@@ -294,6 +294,8 @@ const EditTool = ({ userInfo }) => {
   };
 
   const handleDelete = async () => {
+   
+
     if (!window.confirm('Are you sure you want to delete this tool? This action cannot be undone.')) {
       return;
     }
@@ -309,12 +311,22 @@ const EditTool = ({ userInfo }) => {
       // Delete images from storage
       if (images && images.length > 0) {
         const fileNames = images.map(img => img.file_name);
-        await supabase.storage
-          .from('tools')
+        
+        const { data: imagesdata, error: imgerror } = await supabase.storage
+          .from('Tools')
           .remove(fileNames);
+
+          if(imgerror){
+           console.log(imgerror);
+         }else if(imagesdata){
+           console.log(imagesdata);
+         }
       }
 
+      
+
       // Delete images from database
+      
       await supabase
         .from('report_tool_images')
         .delete()

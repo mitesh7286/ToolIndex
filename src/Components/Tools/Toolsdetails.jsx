@@ -119,7 +119,7 @@ const ToolDetails = ({ userInfo }) => {
       if (images && images.length > 0) {
         const fileNames = images.map(img => img.file_name);
         await supabase.storage
-          .from('tools')
+          .from('Tools')
           .remove(fileNames);
       }
 
